@@ -1,0 +1,277 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+a{
+    transition: all ease .3s;
+}
+.container{
+    display: grid;
+    grid-template-columns: 300px repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "header-left video video"
+                         "header-left comment suggestions";
+}
+
+.header-left{
+    background: #393e46;
+    color: #fff;
+    padding: 2rem .5rem;
+    grid-area: header-left;
+}
+.header-left .title-header{
+    font-family: 'Ubuntu', sans-serif;
+}
+.header-left .title-header h1{
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+.header-left .title-header b{
+    color: #d65a31;
+}
+.my-play-list{
+    margin-bottom: 2rem;
+}
+.title-playlist{
+    font-size: 1.2rem;
+}
+.my-play-list .list{
+    padding: 0 2rem 0 1.5rem;
+}
+.my-play-list .list li{
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+.my-play-list .list li a{
+    color: #fff;
+    text-decoration: none;
+}
+.my-play-list .list li a:hover{
+    color: #ddd;
+}
+.playlist-fiends .title-playlist{
+    margin-bottom: 1rem;
+}
+.playlist-fiends .person{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.img-person{
+    width: 40px;
+    margin: 0;
+    margin-right: .5rem;
+}
+.img-person img{
+    width: 100%;
+    border-radius: 50%;
+}
+.playlist-fiends .person .name a{
+    text-decoration: none;
+    color: #fff;
+}
+.playlist-fiends .person .name a:hover{
+    color: #ddd;
+}
+
+.main-video{
+    border-bottom: 2px solid #dfdfdf;
+    grid-area: video;
+}
+.main-video .video{
+    position: relative;
+}
+.main-video .video video{
+    width: 100%;
+    height: auto;
+}
+.main-video .video .arrow-back{
+    position: absolute;
+    top: 10%;
+    left: 3%;
+    z-index: 100;
+    font-size: 1.5rem;
+}
+.main-video .video .arrow-back a{
+    text-decoration: none;
+    color: #fff;
+}
+.main-video .info-video{
+    padding: 1rem 2rem;
+}
+.main-video .info-video h3{
+    margin: 0;
+    font-size: 1.125rem;
+}
+.main-video .info-video .views p{
+    margin: 0;
+    color: #d4d4d4;
+}
+.main-video .info-video .video-options{
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-video .info-video .video-options .options{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 35%;
+}
+.main-video .info-video .video-options .options .add-list{
+    padding: .5rem 1rem;
+    background-image: linear-gradient(141deg, #dfdfdf 0%, #d65a31 51%, #d65a31 75%);
+    border-radius: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+.main-video .info-video .video-options .options .share a, .main-video .info-video .video-options .options .save a{
+    text-decoration: none;
+    color: #4c5361;
+}
+.main-video .info-video .video-options .options .share a i, .main-video .info-video .video-options .options .save a i{
+    display: block;
+    text-align: center;
+    margin-bottom: .3rem;
+}
+.main-video .info-video .video-options .category span{
+    padding: .2rem .5rem;
+    margin-right: 1rem;
+    border-radius: 20px;
+    color: #fff;
+    min-width: 100px;
+    display: inline-block;
+    text-align: center;
+}
+.main-video .info-video .video-options .category span:nth-of-type(1){
+    background: #9a55fb;
+}
+.main-video .info-video .video-options .category span:nth-of-type(2){
+    background: #16e9c4;
+}
+.main-video .info-video .video-options .category span:nth-of-type(3){
+    background: #e01e22;
+}
+.main-video .info-video .video-options .category span:nth-of-type(4){
+    background: #ed3083;
+}
+
+h4{
+    color: #919497;
+    font-weight: normal;
+}
+.main-comment{
+    grid-area: comment;
+}
+.main-comment, .suggestions{
+    padding: 0 2rem;
+}
+.main-comment .comment .add-comment{
+    margin-bottom: 2rem;
+}
+.main-comment .comment input{
+    padding: .5rem 2.5rem;
+    background: #efefef;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    width: 80%;
+    box-shadow: 1px 1px 3px #aaaaaa;
+    background-image: url('avatar.png');
+    background-repeat: no-repeat;
+    background-size: 25px auto;
+    background-position-x: 5px;
+    background-position-y: center;
+}
+.main-comment .comment input::placeholder{
+    color: #919497;
+}
+.main-comment .comment input{
+    outline-color: transparent;
+}
+.main-comment .users-comment{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.main-comment .users-comment p{
+    margin: 0;
+    margin-top: .5rem;
+    color: #444;
+    font-size: 80%;
+}
+
+.suggestions{
+    grid-area: suggestions;
+}
+.suggestions .suggestions-video{
+    margin-bottom: 1rem;
+    display: block;
+    text-decoration: none;
+}
+.suggestions .suggestions-video .miniature{
+    width: 200px;
+    margin: 0 0 .5rem;
+    box-shadow: 4px 4px 3px #aaaaaa;
+}
+.suggestions .suggestions-video .miniature img{
+    width: 100%;
+    height: auto;
+}
+.suggestions .suggestions-video .title-video{
+    font-size: 80%;
+    color: #444;
+}
+
+@media screen and (max-width: 1024px){
+    .main-video .info-video .video-options .options{
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .add-list, .share{
+        margin: 0 1rem 1rem 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: "header-left header-left"
+                             "video video"
+                             "comment suggestions";
+    }
+    .my-play-list{
+        width: 50%;
+        float: left;
+    }
+}
+@media screen and (max-width: 425px){
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: "header-left"
+                            "video"
+                            "comment"
+                            "suggestions";
+    }
+    .my-play-list{
+        width: 100%;
+        float: none;
+    }
+    .main-video .info-video h3{
+        font-size: 95%;
+        margin-bottom: .5rem;
+    }
+    .main-video .info-video .video-options .category span{
+        margin-bottom: 1rem;
+    }
+    .main-comment .comment input{
+        width: 60%;
+    }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Areas</title>
+    <style>
+        body{
+            font-family: Arial;
+        }
+        .container{
+            display: grid;
+            /*grid-template-columns: 25% 200px 25%; -> Esta propiedad nos sirve para delimitar el tamaño y la cantidad de columnas que queremos en nuestro contenedor. Según la cantidad de valores que pongamos es la cantidad de columnas que tendremos. En este caso tenemos 3 columnas. */
+            /*grid-template-rows: 300px 150px; -> Con esta propiedad controlamos el tamaño de las filas. En este caso controlamos las primeras dos filas, dandole un alto predeterminado. */
+            /* -> Es importante conocer los términos implícito y explícito. Lo explícito es lo que yo tengo claro dentro de mi grid, por ej, en el caso anterior tengo claro es que tengo tres columnas y dos filas con sus respectivos tamaños. A esto lo denominamos EXPLICIT GRID.  */
+            /* grid-template: filas / columnas ; -> Esta propiedad resume las propiedades para asignar filas y columnas. */
+            /*grid-template: 300px 150px / 25% 200px 25%;
+            /*grid-column-gap: 30px; /* -> Utilizamos esto para dar espaciado entre columnas (sustituye márgenes, que al usarlos los elementos cambian su tamaño. Sin embargo con esta propiedad no se altera nuestro grid). */
+            /*grid-row-gap: 50px; /* -> Utilizamos esto para dar espaciado entre filas. */
+            /* grid-gap: filas columnas -> Resume las dos propiedades antes mencionadas */
+            grid-gap: 10px;
+            /* Css Grid presenta una nueva unidad de medida - el "fr (fracción)". Lo que hace esta unidad es distribuir el espacio de manera homogénea. */
+            /*grid-template: 300px 150px / 1fr 1fr 1fr; /* -> En este caso lo que pasará es que las columnas se dividiran en tres partes iguales (33,333%). Podríamos ponerle auto, pero esto lo que hará es adaptarse al contenido de cada columna lo que hará q unas sean más grandes q otras. */
+            /*grid-template: 300px 150px / repeat(4, 1fr); /* -> La función repeat() nos permite decirle q repita un valor que queramos la cantidad de veces que qeuremos q el valor se repita, en este caso le decimos que ponga 4 columnas con 1fr cada una. */
+            /*grid-template: 300px 150px / repeat(4, minmax(200px, 1fr)); /* -> La función minmax() nos permite dar un valor mínimo y uno máximo. Sirve mucho para el responsive. */
+            grid-template: 100px 1fr 150px / 200px 1fr; /* -> Se cambia tamaño de columnas y filas para que queden con el tamaño que en realidad queremos. */
+            height: 100vh;
+            grid-template-areas:    "header header" 
+                                    "left contenido" /* -> La propiedad grid-template-areas nos sirve para definir las areas que tendremos en nuestro layout. En el caso de header y footer lo ponemos dos veces para que ocupen todo el ancho, o sea las dos columnas. */
+                                    "footer footer";
+            
+        }
+
+        .item{
+            background: lightblue;
+            padding: 10px;
+            border: 1px solid red;
+        }
+        
+        .item:nth-of-type(4) {
+            background: blue;
+            overflow: auto;
+            /*display: subgrid; /* -> Poniendo este display ese elemento debe heredar todas propiedades grid que tiene su padre, tanto filas como columnas. (Aún no disponible)  */
+            /*display: inline-grid; -> Este display hace un grid en línea sin filas ni columnas. */
+            display: grid;
+            grid-template: 50px 50px 50px / 200px 200px 200px;
+
+        }
+        .item .item{
+            background: yellow;
+        }
+
+        .header{
+            grid-area: header; /* -> Con la propiedad grid-area asignamos el área que ocupará cada una de nuestras secciones */
+        }
+        .left{
+            grid-area: left;
+        }
+        .contenido{
+            grid-area: contenido;
+        }
+        .footer{
+            grid-area: footer;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="item header">header</div>
+        <div class="item left">left</div>
+        <div class="item contenido">contenido</div>
+        <div class="item footer">footer</div>
+    </section>
+</body>
+</html>
+<!-- 
+    
+Grid Container: va a ser el elemento padre que va a tener puesto un nuevo tipo de display: grid. Nos permite colocar otras propiedades para manipular nuestro layaout.
+
+Grid Item: Son nuestro componentes, contenido, lo que vamos a manejar. Nuestras filas o columnas que vamos a mover a nuestro gusto. Son hijos directos de grid.
+
+Grid Line: Lineas divisorias horizontales y verticales.
+
+Grid Track: Espacio entre dos líneas adyacentes. Filas y columnas.
+
+Grid Cell: Celdas, espacio en dos filas adyacentes y 2 columnas adyacentes.
+
+Grid Area: Espacio rodeado por 4 grid lines 
+
+-->

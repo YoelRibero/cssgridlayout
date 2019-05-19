@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Alineando items</title>
+    <style>
+        body{
+            font-family: Arial;
+        }
+        .container{
+            display: grid;
+            grid-gap: 5px;
+            height: 100vh;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+
+            justify-items: center; /* -> Nos sirve para alinear el contenido horizontalmente - recibe los valores de: start end center stretch(valor por defecto - estira contenido a espacio que de en el grid) */
+            align-items: center; /* -> Nos sirve para alinear el contenido verticalmente - recibe los valores de: start end center stretch */
+
+
+        }
+        .item{
+            background: lightblue;
+            padding: 10px;
+            border: 1px solid red;
+        }
+        .item:nth-of-type(5){
+            align-self: start; /* Para alinear un elemento en particular verticalmente */
+            justify-self: start; /* Para alinear un elemento en particular horizontalmente */
+
+        }
+
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="item">item #1</div>
+        <div class="item">item #2</div>
+        <div class="item">item #3</div>
+        <div class="item">item #4</div>
+        <div class="item">item #5</div>
+        <div class="item">item #6</div>
+        <div class="item">item #7</div>
+        <div class="item">item #8</div>
+        <div class="item">item #9</div>
+        <div class="item">item #10</div>
+        <div class="item">item #11</div>
+        <div class="item">item #12</div>
+    </section>
+</body>
+</html>
+<!-- 
+    
+Grid Container: va a ser el elemento padre que va a tener puesto un nuevo tipo de display: grid. Nos permite colocar otras propiedades para manipular nuestro layaout.
+
+Grid Item: Son nuestro componentes, contenido, lo que vamos a manejar. Nuestras filas o columnas que vamos a mover a nuestro gusto. Son hijos directos de grid.
+
+Grid Line: Lineas divisorias horizontales y verticales.
+
+Grid Track: Espacio entre dos líneas adyacentes. Filas y columnas.
+
+Grid Cell: Celdas, espacio en dos filas adyacentes y 2 columnas adyacentes.
+
+Grid Area: Espacio rodeado por 4 grid lines 
+
+-->

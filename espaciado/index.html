@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GAP</title>
+    <style>
+        body{
+            font-family: Arial;
+        }
+        .container{
+            display: grid;
+            /*grid-template-columns: 25% 200px 25%; -> Esta propiedad nos sirve para delimitar el tamaño y la cantidad de columnas que queremos en nuestro contenedor. Según la cantidad de valores que pongamos es la cantidad de columnas que tendremos. En este caso tenemos 3 columnas. */
+            /*grid-template-rows: 300px 150px; -> Con esta propiedad controlamos el tamaño de las filas. En este caso controlamos las primeras dos filas, dandole un alto predeterminado. */
+            /* -> Es importante conocer los términos implícito y explícito. Lo explícito es lo que yo tengo claro dentro de mi grid, por ej, en el caso anterior tengo claro es que tengo tres columnas y dos filas con sus respectivos tamaños. A esto lo denominamos EXPLICIT GRID.  */
+            /* grid-template: filas / columnas ; -> Esta propiedad resume las propiedades para asignar filas y columnas. */
+            grid-template: 300px 150px / 25% 200px 25%;
+            /*grid-column-gap: 30px; /* -> Utilizamos esto para dar espaciado entre columnas (sustituye márgenes, que al usarlos los elementos cambian su tamaño. Sin embargo con esta propiedad no se altera nuestro grid). */
+            /*grid-row-gap: 50px; /* -> Utilizamos esto para dar espaciado entre filas. */
+            /* grid-gap: filas columnas -> Resume las dos propiedades antes mencionadas */
+            grid-gap: 50px 30px;
+        }
+
+        .item{
+            background: lightblue;
+            padding: 10px;
+            border: 1px solid red;
+        }
+        
+        .item:nth-of-type(4) {
+            background: blue;
+            overflow: auto;
+            /*display: subgrid; /* -> Poniendo este display ese elemento debe heredar todas propiedades grid que tiene su padre, tanto filas como columnas. (Aún no disponible)  */
+            /*display: inline-grid; -> Este display hace un grid en línea sin filas ni columnas. */
+            display: grid;
+            grid-template: 50px 50px 50px / 200px 200px 200px;
+
+        }
+        .item .item{
+            background: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="item">contenido #1</div>
+        <div class="item">contenido #2</div>
+        <div class="item">contenido #3</div>
+        <div class="item">
+            <div class="item">subitem #1</div>
+            <div class="item">subitem #2</div>
+            <div class="item">subitem #3</div>
+            <div class="item">subitem #4</div>
+            <div class="item">subitem #5</div>
+        </div>
+        <div class="item">contenido #5</div>
+        <div class="item">contenido #6</div>
+        <div class="item">contenido #7</div>
+        <div class="item">contenido #8</div>
+        <div class="item">contenido #9</div>
+        <div class="item">contenido #10</div>
+        <div class="item">contenido #11</div>
+        <div class="item">contenido #12</div>
+    </section>
+</body>
+</html>
+<!-- 
+    
+Grid Container: va a ser el elemento padre que va a tener puesto un nuevo tipo de display: grid. Nos permite colocar otras propiedades para manipular nuestro layaout.
+
+Grid Item: Son nuestro componentes, contenido, lo que vamos a manejar. Nuestras filas o columnas que vamos a mover a nuestro gusto. Son hijos directos de grid.
+
+Grid Line: Lineas divisorias horizontales y verticales.
+
+Grid Track: Espacio entre dos líneas adyacentes. Filas y columnas.
+
+Grid Cell: Celdas, espacio en dos filas adyacentes y 2 columnas adyacentes.
+
+Grid Area: Espacio rodeado por 4 grid lines 
+
+-->
