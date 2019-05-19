@@ -181,7 +181,7 @@ h4{
     border-radius: 5px;
     width: 80%;
     box-shadow: 1px 1px 3px #aaaaaa;
-    background-image: url('avatar.png');
+    background-image: url('../img/avatar.png');
     background-repeat: no-repeat;
     background-size: 25px auto;
     background-position-x: 5px;
